@@ -32,7 +32,9 @@ def seed_tables():
             password = bcrypt.generate_password_hash('123456').decode('utf8')
         )
     ]
+
     db.session.add_all(users)
+    
     cards =[
         Card(
             title ="Card 1",
@@ -67,6 +69,7 @@ def seed_tables():
             user = users[1]
         )
     ]
+
     db.session.add_all(cards)
 
     comments = [
@@ -92,6 +95,8 @@ def seed_tables():
             card = cards[2]
         )                
     ]
+
     db.session.add_all(comments)
+
     db.session.commit()
     print("Tables Seeded!")
